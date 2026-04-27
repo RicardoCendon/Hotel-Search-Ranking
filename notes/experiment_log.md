@@ -23,7 +23,7 @@
   - Separated competitor and non-competitor variables for clearer analysis
   - Interpreted meaning of missing values (e.g., no user history, no search data)
 
-- Created structured summary of the only variables with missing values (excluding competitors variable since is highly sparse):
+- Created structured summary of the only variables with missing values (excluding the competitors variables since they are highly sparse):
   - gross_booking_usd
   - visitor_hist_starrating
   - visitor_hist_adr_usd
