@@ -5,7 +5,7 @@
 - Loaded sample of dataset (100k rows) for fast exploration
 - Performed initial EDA
 
-## Data Understanding
+## First Conclusions
 
 - Each search contains multiple hotel listings → ranking problem
 - Booking rate is very low → imbalanced dataset (≈2.7% bookings)
@@ -23,7 +23,7 @@
   - Separated competitor and non-competitor variables for clearer analysis
   - Interpreted meaning of missing values (e.g., no user history, no search data)
 
-- Created structured summary of the only variables with missing values (excluding competitors data):
+- Created structured summary of the only variables with missing values (excluding competitors variable since is highly sparse):
   - gross_booking_usd
   - visitor_hist_starrating
   - visitor_hist_adr_usd
