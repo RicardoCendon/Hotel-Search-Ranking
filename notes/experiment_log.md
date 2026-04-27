@@ -1,12 +1,25 @@
 # Experiment Log
 
-## Day 1
-- Project setup
-- Preparing to explore dataset
+## Day 1 – Setup & Initial Exploration
 
-## Data Understanding
+### What I did
+- Set up project structure (data, notebooks, plots, reports)
+- Loaded sample of dataset (100k rows) for fast exploration
+- Performed initial EDA
 
+### Observations
 - Each search contains multiple hotel listings → ranking problem
-- Booking rate is very low → imbalanced dataset
-- Strong position bias observed
-- Many features contain missing values
+- Dataset is highly imbalanced (≈2.7% bookings)
+- Strong position bias (top-ranked hotels have higher booking probability)
+- Many missing values, especially in competitor-related features
+- Price distribution is right-skewed (presence of outliers)
+
+### Decisions
+- Treat problem as ranking, not classification
+- Use sampling for EDA, full dataset only for final results
+- Handle missing values carefully (not all missing = bad data)
+- Exclude competitor features initially when analyzing missing values
+
+### Next step
+- Deeper analysis of key features (price, competitors, clicks)
+- Start feature engineering
