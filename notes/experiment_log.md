@@ -12,7 +12,6 @@
 - Dataset is highly imbalanced (≈2.7% bookings)
 - Strong position bias (top-ranked hotels have higher booking probability)
 - Many missing values, especially in competitor-related features
-- Price distribution is right-skewed (presence of outliers)
 
 ### Decisions
 - Treat problem as ranking, not classification
