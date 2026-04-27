@@ -13,7 +13,7 @@
 - Many missing values, especially in competitor-related features
 - Creation of key plots regarding this dataset
 
-## Day 2 – Data Understanding
+## Day 2 – Exploration and Understanding
 
 - Switched from sample dataset to full dataset (1M+ rows) for accurate analysis
 - Refined exploratory analysis and created more plots 
@@ -23,7 +23,7 @@
   - Separated competitor and non-competitor variables for clearer analysis
   - Interpreted meaning of missing values (e.g., no user history, no search data)
 
-- Created structured summary of key sparse features:
+- Created structured summary of the only variables with missing values (excluding competitors data):
   - gross_booking_usd
   - visitor_hist_starrating
   - visitor_hist_adr_usd
