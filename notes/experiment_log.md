@@ -38,3 +38,51 @@
 - Performed data validation:
   - Checked for invalid values across multiple features
   - Confirmed no data invalidation after handling missing values
+
+## Day 3 – Data Preparation and Initial LambdaMART Model
+
+- Created a dedicated data preparation notebook
+- Prepared dataset for ranking-based learning using LambdaMART
+
+- Handled missing values:
+  - Filled `prop_location_score2` missing values with `-1`
+  - Filled visitor history features with `0`
+  - Added missing-value indicator flags to preserve missingness information
+
+- Removed leakage-related features from training:
+  - `gross_booking_usd`
+  - `position`
+
+- Investigated data leakage concepts:
+  - Distinguished between usable features and post-booking information
+  - Discussed why target variables cannot be used as input features
+
+- Performed feature engineering:
+  - Created relative price features within each search
+  - Created hotel price rank inside each search query
+  - Combined review score and star rating into interaction features
+  - Generated normalized search-context features
+
+- Prepared ranking groups:
+  - Sorted dataset by `srch_id`
+  - Grouped hotel listings by search query for LambdaMART training
+
+- Built first LambdaMART ranking model using LightGBM:
+  - Created relevance labels:
+    - 0 = no interaction
+    - 1 = click
+    - 5 = booking
+  - Split train/validation sets by search query (`srch_id`)
+  - Trained initial ranking model
+
+- Evaluated model performance:
+  - Computed feature importance scores
+  - Identified strongest ranking features:
+    - relative price
+    - hotel location scores
+    - review-related features
+    - competitor price features
+
+- Evaluated ranking quality using NDCG@5:
+  - Achieved initial NDCG@5 score of approximately `0.38`
+  - Confirmed that the model successfully learned meaningful ranking patterns
