@@ -68,7 +68,7 @@
   - Grouped hotel listings by search query for LambdaMART training
 
 - Built first LambdaMART ranking model using LightGBM:
-  - Created relevance labels:
+  - Created relevance labels to act as the target variable ('y'):
     - 0 = no interaction
     - 1 = click
     - 5 = booking
