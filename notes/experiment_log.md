@@ -86,3 +86,57 @@
 - Evaluated ranking quality using NDCG@5:
   - Achieved initial NDCG@5 score of approximately `0.38`
   - Confirmed that the model successfully learned meaningful ranking patterns
+  - 
+## Day 4 – Model Optimization and Hyperparameter Tuning
+
+- Continued experimentation with the LambdaMART ranking model
+- Refined target relevance definitions and evaluated their impact on ranking quality
+
+- Tested multiple relevance configurations:
+  - Booking-only relevance
+  - Click + booking relevance combinations
+  - Increased click relevance weights
+  - Increased booking relevance weights
+
+- Observed that graded relevance improved ranking quality:
+  - Best relevance definition:
+    - `0` = no interaction
+    - `3` = click
+    - `5` = booking
+  - Confirmed that clicks provide useful intermediate ranking information while bookings remain the strongest relevance signal
+
+- Experimented with the `position` feature:
+  - Included Expedia’s original ranking position during experimentation
+  - Observed a significant increase in NDCG scores
+  - Determined that `position` introduces leakage-like behaviour because it reflects Expedia’s existing ranking logic
+  - Removed `position` from the final model to ensure realistic evaluation and compatibility with the test dataset
+
+- Improved competitor feature preprocessing:
+  - Added missing-value flags for all competitor-related variables
+  - Preserved the distinction between:
+    - unavailable competitor data
+    - actual competitor values (e.g., same price)
+
+- Performed hyperparameter tuning:
+  - Tested different values for:
+    - `num_leaves`
+    - `learning_rate`
+    - `n_estimators`
+  - Observed that:
+    - larger tree sizes (`63`, `127` leaves) reduced performance
+    - lower learning rates improved ranking stability
+
+- Identified best-performing hyperparameters:
+  - `learning_rate = 0.03`
+  - `n_estimators = 700`
+  - `num_leaves = 31`
+
+- Evaluated ranking quality using NDCG@5:
+  - Achieved best validation NDCG@5 score of approximately `0.3866`
+  - Confirmed that hyperparameter tuning and improved competitor preprocessing slightly improved ranking performance
+
+- Additional observations:
+  - Relative price features remained among the strongest predictors
+  - Competitor-related features continued to provide valuable ranking information
+  - Group-based train/validation splitting by `srch_id` proved essential for realistic evaluation
+
